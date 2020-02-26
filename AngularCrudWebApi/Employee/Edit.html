@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>
+        {{ title }}
+    </h3>
+    <hr />
+    <form role="form" style="max-width: 500px;">
+        <strong class="error">{{ error }}</strong>
+        <div class="form-group">
+            <label for="firstname">
+                Name:
+            </label>
+            <input type="text" class="form-control" id="name" ng-model="name" />
+        </div>
+
+        <div class="form-group">
+            <label for="country">
+                Country:
+            </label>
+            <select class="form-control" id="country" ng-model="country" ng-options="c.Value as c.Text for c in countries" ng-change="getStates()">
+                <option value="">-- Select Country --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="state">
+                State:
+            </label>
+            <select class="form-control" id="state" ng-model="state" ng-disabled="!states" ng-options="s.Value as s.Text for s in states">
+                <option value="">-- Select State --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="salary">
+                Salary:
+            </label>
+            <input type="text" class="form-control" id="salary" ng-model="salary" />
+        </div>
+        <div class="form-group">
+            <label for="dob">
+                Date of Birth:
+            </label>
+            <input type="date" class="form-control" id="dob" ng-model="dob" />
+        </div>
+
+        <a href="#/list" class="btn btn-info">Back to List</a>
+        <button type="submit" class="btn btn-default" ng-click="save()">
+            Submit
+        </button>
+    </form>  
+</body>
+</html>
